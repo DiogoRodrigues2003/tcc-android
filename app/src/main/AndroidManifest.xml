@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="br.com.cwi.tcc_android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:name=".MainApplication"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/dog_paw_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/dog_paw_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Tccandroid"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+    </application>
+
+</manifest>
