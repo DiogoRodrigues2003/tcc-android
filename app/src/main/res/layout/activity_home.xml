@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.feature.home.HomeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_welcome_card"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/base_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_dog_icon"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_card_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_dog"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:text="@string/txt_home_title"
+            app:layout_constraintStart_toEndOf="@id/iv_dog_icon"
+            app:layout_constraintEnd_toStartOf="@id/iv_cat_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cat_icon"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_card_title"
+            app:srcCompat="@drawable/ic_cat"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <br.com.cwi.tcc_android.presentation.component.PetSelectionComponent
+        android:id="@+id/content_dogs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:component_pet_type="@string/txt_dogs"
+        app:component_pet_image="@drawable/bc_dog"
+        app:layout_constraintTop_toBottomOf="@id/cl_welcome_card"
+        app:layout_constraintEnd_toStartOf="@+id/content_cats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/content_bottom_navigation" />
+
+    <br.com.cwi.tcc_android.presentation.component.PetSelectionComponent
+        android:id="@+id/content_cats"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:component_pet_type="@string/txt_cats"
+        app:component_pet_image="@drawable/bc_cat"
+        app:layout_constraintTop_toBottomOf="@id/cl_welcome_card"
+        app:layout_constraintStart_toEndOf="@+id/content_dogs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/content_bottom_navigation" />
+
+    <include
+        android:id="@+id/content_bottom_navigation"
+        layout="@layout/view_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

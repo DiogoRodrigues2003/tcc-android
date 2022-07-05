@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PetSelectionComponent">
+        <attr name="component_pet_type" format="string" />
+        <attr name="component_pet_image" format="reference" />
+    </declare-styleable>
+</resources>
