@@ -3,6 +3,8 @@ package br.com.cwi.tcc_android.presentation.base
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import br.com.cwi.tcc_android.R
+import br.com.cwi.tcc_android.presentation.feature.dogs.DogHostActivity
+import br.com.cwi.tcc_android.presentation.feature.home.HomeActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 abstract class BaseBottomNavigation : AppCompatActivity() {
@@ -26,12 +28,12 @@ abstract class BaseBottomNavigation : AppCompatActivity() {
         getBottomNavigation().setOnItemSelectedListener {
             if (it.itemId != this.currentTab) when (it.itemId) {
                 R.id.home_menu -> {
-                    //val intent = Intent(this, ProductsActivity::class.java)
-                    //startActivity(intent)
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.dog_menu -> {
-                    //val intent = Intent(this, FavoritesActivity::class.java)
-                    //startActivity(intent)
+                    val intent = Intent(this, DogHostActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.cat_menu -> {
                     //val intent = Intent(this, BagActivity::class.java)

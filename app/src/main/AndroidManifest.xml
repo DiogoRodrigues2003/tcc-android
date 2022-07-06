@@ -28,6 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.feature.dogs.DogHostActivity"
+            android:exported="false"
+            android:label="Dogs"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

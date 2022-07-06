@@ -92,6 +92,8 @@ dependencies {
 
     //Coroutines Test
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version")
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
 }
 
 allprojects {

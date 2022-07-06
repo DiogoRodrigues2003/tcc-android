@@ -1,9 +1,11 @@
 package br.com.cwi.tcc_android.presentation.feature.home
 
+import android.content.Intent
 import android.os.Bundle
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.ActivityHomeBinding
 import br.com.cwi.tcc_android.presentation.base.BaseBottomNavigation
+import br.com.cwi.tcc_android.presentation.feature.dogs.DogHostActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : BaseBottomNavigation() {
@@ -23,11 +25,11 @@ class HomeActivity : BaseBottomNavigation() {
     override fun getBottomNavigation(): BottomNavigationView = binding.contentBottomNavigation.root
 
     private fun setUpPetActions() {
-        /*binding.contentCoffees.setOnClickListener {
-            val intent = Intent(this, CoffeeHostActivity::class.java)
+        binding.contentDogs.setOnClickListener {
+            val intent = Intent(this, DogHostActivity::class.java)
             startActivity(intent)
         }
-
+/*
         binding.contentMachines.setOnClickListener {
             val intent = Intent(this, MachineActivity::class.java)
             startActivity(intent)

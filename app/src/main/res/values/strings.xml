@@ -5,4 +5,5 @@
     <string name="txt_cats">Cats</string>
     <string name="txt_home_title">Welcome to Everything-Pets!</string>
     <string name="txt_home_guide">Here, you\'ll be able to find everything about dogs and cats. You can also create a profile for your own pet.</string>
+    <string name="txt_error_title">An error has occurred.</string>
 </resources>

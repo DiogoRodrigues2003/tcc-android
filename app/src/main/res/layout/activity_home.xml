@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="23sp"
+            android:textColor="@color/darker_base_color"
             android:textStyle="bold"
             android:text="@string/txt_home_title"
             app:layout_constraintStart_toEndOf="@id/iv_dog_icon"

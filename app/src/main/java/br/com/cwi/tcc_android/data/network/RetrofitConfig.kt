@@ -3,6 +3,7 @@ package br.com.cwi.tcc_android.data.network
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
@@ -25,7 +26,7 @@ object RetrofitConfig {
         .build()
 
     val dogService: DogApi = Retrofit.Builder()
-        .baseUrl("https://api.thedogapi.com/v1/")
+        .baseUrl("https://api.thedogapi.com/")
         .client(dogHttpClient)
         .addConverterFactory(
             MoshiConverterFactory.create(
@@ -34,8 +35,16 @@ object RetrofitConfig {
                     .build()
             )
         )
+        //.client(getClient())
         .build()
         .create(DogApi::class.java)
+
+    private fun getClient(): OkHttpClient {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        return OkHttpClient.Builder().addInterceptor(interceptor).build()
+    }
 
     val catService: CatApi = Retrofit.Builder()
         .baseUrl("https://api.thecatapi.com/v1/")
