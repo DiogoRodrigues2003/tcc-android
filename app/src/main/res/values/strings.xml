@@ -6,4 +6,13 @@
     <string name="txt_home_title">Welcome to Everything-Pets!</string>
     <string name="txt_home_guide">Here, you\'ll be able to find everything about dogs and cats. You can also create a profile for your own pet.</string>
     <string name="txt_error_title">An error has occurred.</string>
+    <string name="txt_breed">Yorkshire Terrier</string>
+    <string name="txt_generate_new_image">Generate new Image</string>
+    <string name="txt_i_have_one">I have one!</string>
+    <string name="txt_bred_for">BRED FOR:</string>
+    <string name="txt_breed_group">BREED GROUP:</string>
+    <string name="txt_life_span">LIFE SPAN:</string>
+    <string name="txt_temperament">TEMPERAMENT:</string>
+    <string name="txt_weight">WEIGHT:</string>
+    <string name="txt_height">HEIGHT:</string>
 </resources>

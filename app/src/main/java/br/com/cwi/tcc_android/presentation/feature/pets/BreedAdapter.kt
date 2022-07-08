@@ -10,12 +10,13 @@ import br.com.cwi.tcc_android.domain.entity.Breed
 class BreedAdapter (
     private val context: Context,
     private val list: List<Breed>,
-    private val petType: String
+    private val petType: String,
+    private val onBreedClick: (Int, String) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val view = inflateView(R.layout.item_breed, parent)
-            return BreedViewHolder(view, petType)
+            return BreedViewHolder(view, petType, onBreedClick)
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {

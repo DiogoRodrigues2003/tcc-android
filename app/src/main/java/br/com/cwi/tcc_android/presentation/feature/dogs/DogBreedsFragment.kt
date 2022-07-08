@@ -54,7 +54,20 @@ class DogBreedsFragment : Fragment() {
 
     private fun setUpCoffeeRecyclerView(list: List<Breed>) {
         binding.rvBreeds.apply {
-            adapter = BreedAdapter(context, list, "dog")
+            adapter = BreedAdapter(context, list, "dog",
+                onBreedClick = { id, name ->
+                    navigateToBreedDetails(id, name)
+            })
         }
+    }
+
+    private fun navigateToBreedDetails(id: Int, name: String) {
+        findNavController().navigate(
+            R.id.breedDetailsFragment,
+            bundleOf(
+                Pair("BREED_ID", id),
+                Pair("BREED_NAME", name)
+            )
+        )
     }
 }

@@ -9,6 +9,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitConfig {
 
+    private fun getClient(): OkHttpClient {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        return OkHttpClient.Builder().addInterceptor(interceptor).build()
+    }
+
     private val dogHttpClient = OkHttpClient.Builder()
         .addInterceptor {
             val request = it.request().newBuilder()
@@ -35,19 +42,12 @@ object RetrofitConfig {
                     .build()
             )
         )
-        //.client(getClient())
+        .client(getClient())
         .build()
         .create(DogApi::class.java)
 
-    private fun getClient(): OkHttpClient {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
-
-        return OkHttpClient.Builder().addInterceptor(interceptor).build()
-    }
-
     val catService: CatApi = Retrofit.Builder()
-        .baseUrl("https://api.thecatapi.com/v1/")
+        .baseUrl("https://api.thecatapi.com/")
         .client(catHttpClient)
         .addConverterFactory(
             MoshiConverterFactory.create(
