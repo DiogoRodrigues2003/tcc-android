@@ -15,4 +15,9 @@
         android:enabled="true"
         android:icon="@drawable/ic_cat"
         android:title="@string/txt_cats"/>
+    <item
+        android:id="@+id/user_pets_menu"
+        android:enabled="true"
+        android:icon="@drawable/ic_bone"
+        android:title="@string/txt_your_pets"/>
 </menu>

@@ -26,6 +26,7 @@ abstract class BaseBottomNavigation : AppCompatActivity() {
     }
 
     private fun setUpBottomNavigationActions() {
+
         getBottomNavigation().setOnItemSelectedListener {
             if (it.itemId != this.currentTab) when (it.itemId) {
                 R.id.home_menu -> {
