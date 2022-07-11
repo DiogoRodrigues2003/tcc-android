@@ -1,11 +1,11 @@
 package br.com.cwi.tcc_android.data.network.mapper
 
-import br.com.cwi.tcc_android.data.network.entity.PetResponse
-import br.com.cwi.tcc_android.domain.entity.Pet
+import br.com.cwi.tcc_android.data.network.entity.DogResponse
+import br.com.cwi.tcc_android.domain.entity.Dog
 
-class PetMapper: DomainMapper<PetResponse, Pet> {
+class DogMapper: DomainMapper<DogResponse, Dog> {
 
-    override fun toDomain(from: PetResponse) = Pet(
+    override fun toDomain(from: DogResponse) = Dog(
         id = from.id,
         name = from.name,
         bredFor = nullChecker(from.bredFor),
@@ -16,12 +16,7 @@ class PetMapper: DomainMapper<PetResponse, Pet> {
         height = from.height.value + " cm"
     )
 
-    override fun toDomain(from: List<PetResponse>) = from.map {
+    override fun toDomain(from: List<DogResponse>) = from.map {
         toDomain(it)
-    }
-
-    private fun nullChecker(value: String?): String {
-        if (value === null) return "Unknown"
-        return value
     }
 }

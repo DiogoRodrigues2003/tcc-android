@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_cat"
+    app:startDestination="@id/breedFragment">
+
+    <fragment
+        android:id="@+id/breedFragment"
+        android:label="fragment_breed"
+        android:name="br.com.cwi.tcc_android.presentation.feature.cats.CatBreedsFragment"
+        tools:layout="@layout/fragment_breed">
+        <action
+            android:id="@+id/action_breedFragment_to_breedDetailsFragment"
+            app:destination="@id/breedDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/breedDetailsFragment"
+        android:label="fragment_breed_details"
+        android:name="br.com.cwi.tcc_android.presentation.feature.cats.CatBreedDetailsFragment"
+        tools:layout="@layout/fragment_breed_details">
+    </fragment>
+
+</navigation>

@@ -1,4 +1,4 @@
-package br.com.cwi.tcc_android.presentation.feature.dogs
+package br.com.cwi.tcc_android.presentation.feature.cats
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import br.com.cwi.tcc_android.presentation.feature.pets.BreedDetailsViewHolder
 import br.com.cwi.tcc_android.presentation.feature.pets.PetImageViewHolder
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class DogBreedDetailsFragment: Fragment() {
+class CatBreedDetailsFragment: Fragment() {
 
     private lateinit var binding: FragmentBreedDetailsBinding
 
@@ -22,7 +22,7 @@ class DogBreedDetailsFragment: Fragment() {
         arguments?.getString("BREED_NAME")
     }
 
-    private val viewModel: DogViewModel by sharedViewModel()
+    private val viewModel: CatViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,15 +41,15 @@ class DogBreedDetailsFragment: Fragment() {
     private fun setUpViewModel(view: View) {
         viewModel.breedDetails.observe(viewLifecycleOwner) {
             BreedDetailsViewHolder(view).bind(it)
-       }
+        }
 
-        viewModel.dogImage.observe(viewLifecycleOwner) {
+        viewModel.catImage.observe(viewLifecycleOwner) {
             PetImageViewHolder(view, onNewImageClick = {
-                viewModel.fetchDogImage(breedId)
+                viewModel.fetchCatImage(breedId)
             }).bind(this, it)
         }
 
-        viewModel.fetchDogImage(breedId)
+        viewModel.fetchCatImage(breedId)
         viewModel.fetchBreedDetails(breedName)
     }
 }

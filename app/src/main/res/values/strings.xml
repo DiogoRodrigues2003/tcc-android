@@ -15,4 +15,7 @@
     <string name="txt_temperament">TEMPERAMENT:</string>
     <string name="txt_weight">WEIGHT:</string>
     <string name="txt_height">HEIGHT:</string>
+    <string name="txt_natural">NATURAL:</string>
+    <string name="txt_lap">LAP:</string>
+    <string name="txt_hairless">HAIRLESS:</string>
 </resources>

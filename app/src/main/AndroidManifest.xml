@@ -33,6 +33,11 @@
             android:exported="false"
             android:label="Dogs"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.feature.cats.CatHostActivity"
+            android:exported="false"
+            android:label="Cats"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

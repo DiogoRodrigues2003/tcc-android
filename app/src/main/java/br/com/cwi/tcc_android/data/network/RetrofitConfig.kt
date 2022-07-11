@@ -42,7 +42,6 @@ object RetrofitConfig {
                     .build()
             )
         )
-        .client(getClient())
         .build()
         .create(DogApi::class.java)
 

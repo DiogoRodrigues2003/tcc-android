@@ -1,4 +1,4 @@
-package br.com.cwi.tcc_android.presentation.feature.dogs
+package br.com.cwi.tcc_android.presentation.feature.cats
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,11 +13,11 @@ import br.com.cwi.tcc_android.domain.entity.Breed
 import br.com.cwi.tcc_android.presentation.feature.pets.BreedAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class DogBreedsFragment : Fragment() {
+class CatBreedsFragment : Fragment() {
 
     private lateinit var binding: FragmentBreedBinding
 
-    private val viewModel: DogViewModel by sharedViewModel()
+    private val viewModel: CatViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,10 +54,10 @@ class DogBreedsFragment : Fragment() {
 
     private fun setUpCoffeeRecyclerView(list: List<Breed>) {
         binding.rvBreeds.apply {
-            adapter = BreedAdapter(context, list, "dog",
+            adapter = BreedAdapter(context, list, "cat",
                 onBreedClick = { id, name ->
                     navigateToBreedDetails(id, name)
-            })
+                })
         }
     }
 

@@ -100,46 +100,46 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_bred_for_title"
+                android:id="@+id/tv_first_info_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_bred_for"
+                tools:text="@string/txt_bred_for"
                 android:textStyle="bold"
                 android:paddingVertical="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tv_breed_group_title"
+                app:layout_constraintBottom_toTopOf="@+id/tv_second_info_title"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_bred_for"
+                android:id="@+id/tv_first_info"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
                 android:paddingVertical="15dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_breed_group_title"
+                app:layout_constraintBottom_toTopOf="@+id/tv_second_info_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Small vermin hunting" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_breed_group_title"
+                android:id="@+id/tv_second_info_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_breed_group"
+                tools:text="@string/txt_breed_group"
                 android:textStyle="bold"
                 android:paddingVertical="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/tv_life_span_title"
-                app:layout_constraintTop_toBottomOf="@+id/tv_bred_for" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_first_info" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_breed_group"
+                android:id="@+id/tv_second_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="15dp"
                 app:layout_constraintBottom_toTopOf="@id/tv_life_span_title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_bred_for"
+                app:layout_constraintTop_toBottomOf="@+id/tv_first_info"
                 tools:text="Toy" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -151,7 +151,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/tv_temperament_title"
-                app:layout_constraintTop_toBottomOf="@+id/tv_breed_group" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_second_info" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_life_span"
@@ -160,7 +160,7 @@
                 android:paddingVertical="15dp"
                 app:layout_constraintBottom_toTopOf="@id/tv_temperament_title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_breed_group"
+                app:layout_constraintTop_toBottomOf="@+id/tv_second_info"
                 tools:text="12 - 16 years" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -171,7 +171,7 @@
                 android:textStyle="bold"
                 android:paddingVertical="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tv_weight_title"
+                app:layout_constraintBottom_toTopOf="@+id/tv_fifth_info_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_life_span" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -182,8 +182,29 @@
                 android:paddingVertical="15dp"
                 tools:text="Bold, Independent, Confident, Intelligent, Courageous"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tv_weight_title"
+                app:layout_constraintBottom_toTopOf="@+id/tv_fifth_info_title"
                 app:layout_constraintTop_toBottomOf="@+id/tv_life_span" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_fifth_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/txt_height"
+                android:textStyle="bold"
+                android:paddingVertical="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_weight_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_temperament" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_fifth_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_weight_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_temperament"
+                tools:text="20 - 23 cm" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_weight_title"
@@ -192,40 +213,19 @@
                 android:text="@string/txt_weight"
                 android:textStyle="bold"
                 android:paddingVertical="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tv_height_title"
-                app:layout_constraintTop_toBottomOf="@+id/tv_temperament" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_fifth_info" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="15dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_height_title"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_temperament"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fifth_info"
                 tools:text="2 - 3 kg" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_height_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_height"
-                android:textStyle="bold"
-                android:paddingVertical="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_weight" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_height"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_weight"
-                tools:text="20 - 23 cm" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

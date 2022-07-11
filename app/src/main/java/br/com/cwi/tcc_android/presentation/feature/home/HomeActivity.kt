@@ -5,6 +5,7 @@ import android.os.Bundle
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.ActivityHomeBinding
 import br.com.cwi.tcc_android.presentation.base.BaseBottomNavigation
+import br.com.cwi.tcc_android.presentation.feature.cats.CatHostActivity
 import br.com.cwi.tcc_android.presentation.feature.dogs.DogHostActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -29,16 +30,10 @@ class HomeActivity : BaseBottomNavigation() {
             val intent = Intent(this, DogHostActivity::class.java)
             startActivity(intent)
         }
-/*
-        binding.contentMachines.setOnClickListener {
-            val intent = Intent(this, MachineActivity::class.java)
-            startActivity(intent)
-        }
 
-        binding.contentAccessories.setOnClickListener {
-            val intent = Intent(this, AccessoryActivity::class.java)
+        binding.contentCats.setOnClickListener {
+            val intent = Intent(this, CatHostActivity::class.java)
             startActivity(intent)
         }
-         */
     }
 }

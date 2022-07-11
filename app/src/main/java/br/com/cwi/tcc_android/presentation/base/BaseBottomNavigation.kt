@@ -3,6 +3,7 @@ package br.com.cwi.tcc_android.presentation.base
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import br.com.cwi.tcc_android.R
+import br.com.cwi.tcc_android.presentation.feature.cats.CatHostActivity
 import br.com.cwi.tcc_android.presentation.feature.dogs.DogHostActivity
 import br.com.cwi.tcc_android.presentation.feature.home.HomeActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,8 +37,8 @@ abstract class BaseBottomNavigation : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.cat_menu -> {
-                    //val intent = Intent(this, BagActivity::class.java)
-                    //startActivity(intent)
+                    val intent = Intent(this, CatHostActivity::class.java)
+                    startActivity(intent)
                 }
             }
             return@setOnItemSelectedListener true

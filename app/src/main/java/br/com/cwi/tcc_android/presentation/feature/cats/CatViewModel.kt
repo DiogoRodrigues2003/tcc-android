@@ -1,29 +1,30 @@
-package br.com.cwi.tcc_android.presentation.feature.dogs
+package br.com.cwi.tcc_android.presentation.feature.cats
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.cwi.tcc_android.domain.entity.Breed
+import br.com.cwi.tcc_android.domain.entity.Cat
 import br.com.cwi.tcc_android.domain.entity.Dog
 import br.com.cwi.tcc_android.domain.entity.PetImage
-import br.com.cwi.tcc_android.domain.repository.DogRepository
+import br.com.cwi.tcc_android.domain.repository.CatRepository
 import br.com.cwi.tcc_android.presentation.base.BaseViewModel
 
-class DogViewModel(
-    private val repository: DogRepository
+class CatViewModel (
+    private val repository: CatRepository
 ) : BaseViewModel() {
 
     private val _breeds = MutableLiveData<List<Breed>>()
     val breeds: LiveData<List<Breed>> = _breeds
 
-    private val _breedDetails = MutableLiveData<Dog>()
-    val breedDetails: LiveData<Dog> = _breedDetails
+    private val _breedDetails = MutableLiveData<Cat>()
+    val breedDetails: LiveData<Cat> = _breedDetails
 
-    private val _dogImage = MutableLiveData<PetImage>()
-    val dogImage: LiveData<PetImage> = _dogImage
+    private val _catImage = MutableLiveData<PetImage>()
+    val catImage: LiveData<PetImage> = _catImage
 
     fun fetchBreeds() {
         launch {
-            val breedList = repository.getDogBreeds(page)
+            val breedList = repository.getCatBreeds(page)
             emptyPage(breedList)
             _breeds.postValue(breedList)
         }
@@ -31,15 +32,15 @@ class DogViewModel(
 
     fun fetchBreedDetails(name: String?) {
         launch {
-            val breed = repository.getDogBreedByName(name)
+            val breed = repository.getCatBreedByName(name)
             _breedDetails.postValue(breed)
         }
     }
 
-    fun fetchDogImage(id: String?) {
+    fun fetchCatImage(id: String?) {
         launch {
-            val image = repository.getNewDogImage(id)
-            _dogImage.postValue(image)
+            val image = repository.getNewCatImage(id)
+            _catImage.postValue(image)
         }
     }
 

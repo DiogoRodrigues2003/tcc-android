@@ -3,9 +3,9 @@ package br.com.cwi.tcc_android.data.repository
 import br.com.cwi.tcc_android.data.network.DogApi
 import br.com.cwi.tcc_android.data.network.mapper.BreedMapper
 import br.com.cwi.tcc_android.data.network.mapper.PetImageMapper
-import br.com.cwi.tcc_android.data.network.mapper.PetMapper
+import br.com.cwi.tcc_android.data.network.mapper.DogMapper
 import br.com.cwi.tcc_android.domain.entity.Breed
-import br.com.cwi.tcc_android.domain.entity.Pet
+import br.com.cwi.tcc_android.domain.entity.Dog
 import br.com.cwi.tcc_android.domain.entity.PetImage
 import br.com.cwi.tcc_android.domain.repository.DogRepository
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
 class DogRepositoryImpl (
     private val api: DogApi,
     private val breedMapper: BreedMapper,
-    private val petMapper: PetMapper,
+    private val dogMapper: DogMapper,
     private val petImageMapper: PetImageMapper
 ) : DogRepository {
 
@@ -25,13 +25,13 @@ class DogRepositoryImpl (
         }
     }
 
-    override suspend fun getDogBreedByName(name: String?): Pet {
+    override suspend fun getDogBreedByName(name: String?): Dog {
         return withContext(Dispatchers.IO) {
-            petMapper.toDomain(api.getDogBreedByName(name)).first()
+            dogMapper.toDomain(api.getDogBreedByName(name)).first()
         }
     }
 
-    override suspend fun getNewDogImage(id: Int?): PetImage {
+    override suspend fun getNewDogImage(id: String?): PetImage {
         return withContext(Dispatchers.IO) {
             petImageMapper.toDomain(api.getNewDogImage(id)).first()
         }

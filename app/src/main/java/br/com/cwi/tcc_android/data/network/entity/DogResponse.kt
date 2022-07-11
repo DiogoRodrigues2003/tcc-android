@@ -2,8 +2,8 @@ package br.com.cwi.tcc_android.data.network.entity
 
 import com.squareup.moshi.Json
 
-class PetResponse (
-    @Json(name="id") val id: Int,
+class DogResponse (
+    @Json(name="id") val id: String,
     @Json(name="name") val name: String,
     @Json(name="bred_for") val bredFor: String?,
     @Json(name="breed_group") val breedGroup: String?,

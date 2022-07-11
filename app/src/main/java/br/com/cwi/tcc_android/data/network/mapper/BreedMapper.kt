@@ -10,7 +10,7 @@ class BreedMapper: DomainMapper<BreedResponse, Breed> {
     override fun toDomain(from: BreedResponse) = Breed(
         id = from.id,
         name = from.name,
-        image = imageMapper.toDomain(from.image)
+        image = from.image?.let { imageMapper.toDomain(it) }
     )
 
     override fun toDomain(from: List<BreedResponse>) = from.map {

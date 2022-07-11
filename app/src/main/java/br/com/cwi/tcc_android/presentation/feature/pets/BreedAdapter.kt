@@ -11,7 +11,7 @@ class BreedAdapter (
     private val context: Context,
     private val list: List<Breed>,
     private val petType: String,
-    private val onBreedClick: (Int, String) -> Unit
+    private val onBreedClick: (String, String) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
