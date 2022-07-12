@@ -27,9 +27,7 @@ abstract class BaseViewModel: ViewModel() {
             } catch (ex: Exception) {
                 _error.postValue(true)
             }
-
             _loading.postValue(false)
-
         }
     }
 

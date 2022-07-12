@@ -2,6 +2,7 @@ package br.com.cwi.tcc_android.presentation.feature.dogs
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import br.com.cwi.tcc_android.R

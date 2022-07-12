@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 class PetEntity(
-    @PrimaryKey val id: String,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     val name: String,
-    val breedName: String,
+    val breedName: String?,
+    val breedId: String?,
     val urlImage: String?
 )

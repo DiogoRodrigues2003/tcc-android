@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentBreedDetailsBinding
 import br.com.cwi.tcc_android.presentation.feature.pets.BreedDetailsViewHolder
 import br.com.cwi.tcc_android.presentation.feature.pets.PetImageViewHolder
@@ -40,7 +43,9 @@ class CatBreedDetailsFragment: Fragment() {
 
     private fun setUpViewModel(view: View) {
         viewModel.breedDetails.observe(viewLifecycleOwner) {
-            BreedDetailsViewHolder(view).bind(it)
+            BreedDetailsViewHolder(view, onAddPetClick = {
+                navigateToAddPet()
+            }).bind(this, it)
         }
 
         viewModel.catImage.observe(viewLifecycleOwner) {
@@ -51,5 +56,15 @@ class CatBreedDetailsFragment: Fragment() {
 
         viewModel.fetchCatImage(breedId)
         viewModel.fetchBreedDetails(breedName)
+    }
+
+    private fun navigateToAddPet() {
+        findNavController().navigate(
+            R.id.addPetFragment,
+            bundleOf(
+                Pair("BREED_ID", breedId),
+                Pair("BREED_NAME", breedName)
+            )
+        )
     }
 }

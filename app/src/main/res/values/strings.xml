@@ -19,4 +19,10 @@
     <string name="txt_lap">LAP:</string>
     <string name="txt_hairless">HAIRLESS:</string>
     <string name="txt_your_pets">Your Pets</string>
+    <string name="txt_name_input_title_ex">What\'s the name of your Yorkshire Terrier?</string>
+    <string name="txt_name_input_title">What\'s the name of your %1$s?</string>
+    <string name="txt_submit">Submit</string>
+    <string name="txt_ex_pet_name">Ex.: Chico</string>
+    <string name="txt_name_info">Name:</string>
+    <string name="txt_breed_info">Breed:</string>
 </resources>

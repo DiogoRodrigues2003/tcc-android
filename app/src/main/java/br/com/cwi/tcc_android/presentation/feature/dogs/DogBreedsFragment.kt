@@ -13,6 +13,8 @@ import br.com.cwi.tcc_android.domain.entity.Breed
 import br.com.cwi.tcc_android.presentation.feature.pets.BreedAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
+const val PET_TYPE_DOG = "DOG"
+
 class DogBreedsFragment : Fragment() {
 
     private lateinit var binding: FragmentBreedBinding
@@ -54,7 +56,7 @@ class DogBreedsFragment : Fragment() {
 
     private fun setUpCoffeeRecyclerView(list: List<Breed>) {
         binding.rvBreeds.apply {
-            adapter = BreedAdapter(context, list, "dog",
+            adapter = BreedAdapter(context, list, PET_TYPE_DOG,
                 onBreedClick = { id, name ->
                     navigateToBreedDetails(id, name)
             })

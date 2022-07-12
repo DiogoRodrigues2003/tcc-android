@@ -10,7 +10,7 @@ class CatMapper : DomainMapper<CatResponse, Cat> {
         name = from.name,
         lap = checker(from.lap),
         natural =  checker(from.natural),
-        lifeSpan =  nullChecker(from.lifeSpan),
+        lifeSpan =  from.lifeSpan + " years",
         temperament =  nullChecker(from.temperament),
         weight = from.weight.value + " kg",
         hairless = checker(from.hairless)
@@ -21,8 +21,8 @@ class CatMapper : DomainMapper<CatResponse, Cat> {
     }
 
     private fun checker(value: String?): String {
-        if (value == "1") return "Yes"
-        else if (value == "0") return "No"
+        if (value == "1") return "Yes."
+        else if (value == "0") return "No."
         return "Unknown"
     }
 }

@@ -6,6 +6,7 @@ import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.presentation.feature.cats.CatHostActivity
 import br.com.cwi.tcc_android.presentation.feature.dogs.DogHostActivity
 import br.com.cwi.tcc_android.presentation.feature.home.HomeActivity
+import br.com.cwi.tcc_android.presentation.feature.userPets.UserPetsHostActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 abstract class BaseBottomNavigation : AppCompatActivity() {
@@ -39,6 +40,10 @@ abstract class BaseBottomNavigation : AppCompatActivity() {
                 }
                 R.id.cat_menu -> {
                     val intent = Intent(this, CatHostActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.user_pets_menu -> {
+                    val intent = Intent(this, UserPetsHostActivity::class.java)
                     startActivity(intent)
                 }
             }
