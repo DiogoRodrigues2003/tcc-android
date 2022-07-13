@@ -20,16 +20,6 @@
         android:label="fragment_breed_details"
         android:name="br.com.cwi.tcc_android.presentation.feature.dogs.DogBreedDetailsFragment"
         tools:layout="@layout/fragment_breed_details">
-        <action
-            android:id="@+id/action_breedDetailsFragment_to_addPetFragment"
-            app:destination="@id/addPetFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/addPetFragment"
-        android:label="fragment_add_pet"
-        android:name="br.com.cwi.tcc_android.presentation.feature.pets.AddPetFragment"
-        tools:layout="@layout/fragment_add_pet">
     </fragment>
 
 </navigation>

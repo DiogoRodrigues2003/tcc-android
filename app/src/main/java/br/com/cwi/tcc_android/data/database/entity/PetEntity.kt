@@ -9,5 +9,5 @@ class PetEntity(
     val name: String,
     val breedName: String?,
     val breedId: String?,
-    val urlImage: String?
+    val petPhotoUrl: String
 )

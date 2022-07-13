@@ -8,8 +8,10 @@ class AddPetViewModel (
     private val petLocalRepository: PetLocalRepository
 ): BaseViewModel() {
 
+    var photoUrl: String = ""
+
     fun setPet(petName: String, breedName: String?, breedId: String?) {
-        petLocalRepository.add(toPetEntity(petName, breedName, breedId))
+        petLocalRepository.add(toPetEntity(petName, breedName, breedId, photoUrl))
     }
 
 }

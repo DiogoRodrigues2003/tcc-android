@@ -7,7 +7,7 @@ import br.com.cwi.tcc_android.databinding.FragmentBreedDetailsBinding
 import br.com.cwi.tcc_android.domain.entity.Cat
 import br.com.cwi.tcc_android.domain.entity.Dog
 
-class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: () -> Unit) {
+class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: (String, String) -> Unit) {
     private val binding = FragmentBreedDetailsBinding.bind(itemView)
 
     private val mbAddPet = binding.mbAddPet
@@ -37,7 +37,7 @@ class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: () -> Un
         tvFifthInfo.text = item.height
         tvWeight.text = item.weight
 
-        addPetClickListener()
+        addPetClickListener(item.id, item.name)
     }
 
     fun bind(context: Fragment, item: Cat) {
@@ -53,12 +53,12 @@ class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: () -> Un
         tvFifthInfo.text = item.lap
         tvWeight.text = item.weight
 
-        addPetClickListener()
+        addPetClickListener(item.id, item.name)
     }
 
-    private fun addPetClickListener() {
+    private fun addPetClickListener(id: String, name: String) {
         mbAddPet.setOnClickListener {
-            onAddPetClick()
+            onAddPetClick(id, name)
         }
     }
 }

@@ -1,5 +1,6 @@
 package br.com.cwi.tcc_android.presentation.feature.dogs
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentBreedDetailsBinding
+import br.com.cwi.tcc_android.presentation.feature.pets.AddPetActivity
 import br.com.cwi.tcc_android.presentation.feature.pets.BreedDetailsViewHolder
 import br.com.cwi.tcc_android.presentation.feature.pets.PetImageViewHolder
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -43,8 +45,8 @@ class DogBreedDetailsFragment: Fragment() {
 
     private fun setUpViewModel(view: View) {
         viewModel.breedDetails.observe(viewLifecycleOwner) {
-            BreedDetailsViewHolder(view, onAddPetClick = {
-                navigateToAddPet()
+            BreedDetailsViewHolder(view, onAddPetClick = { id, name ->
+                navigateToAddPet(id, name)
             }).bind(this, it)
        }
 
@@ -58,13 +60,10 @@ class DogBreedDetailsFragment: Fragment() {
         viewModel.fetchBreedDetails(breedName)
     }
 
-    private fun navigateToAddPet() {
-        findNavController().navigate(
-            R.id.addPetFragment,
-            bundleOf(
-                Pair("BREED_ID", breedId),
-                Pair("BREED_NAME", breedName)
-            )
-        )
+    private fun navigateToAddPet(id: String, name: String) {
+        val intent = Intent(context, AddPetActivity::class.java)
+            .putExtra("BREED_ID", id)
+            .putExtra("BREED_NAME", name)
+        startActivity(intent)
     }
 }

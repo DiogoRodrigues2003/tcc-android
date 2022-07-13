@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_welcome_card"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:elevation="10dp"
         android:background="@color/base_color"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,7 +18,7 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_dog_icon"
-            android:layout_width="35dp"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
             android:id="@+id/tv_card_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="23sp"
+            android:textSize="18sp"
             android:textColor="@color/darker_base_color_2"
             android:textStyle="bold"
             android:shadowColor="@color/text_shadow"
@@ -45,7 +45,7 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_cat_icon"
-            android:layout_width="35dp"
+            android:layout_width="28dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

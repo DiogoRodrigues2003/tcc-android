@@ -25,4 +25,6 @@
     <string name="txt_ex_pet_name">Ex.: Chico</string>
     <string name="txt_name_info">Name:</string>
     <string name="txt_breed_info">Breed:</string>
+    <string name="txt_photo_input_title">And how does he/she look like?</string>
+    <string name="txt_choose_photo">Choose Photo</string>
 </resources>

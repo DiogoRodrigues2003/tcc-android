@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -42,6 +43,11 @@
             android:name=".presentation.feature.userPets.UserPetsHostActivity"
             android:exported="false"
             android:label="Your Pets"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.feature.pets.AddPetActivity"
+            android:exported="false"
+            android:label="Add your Pet"
             android:screenOrientation="portrait" />
     </application>
 
