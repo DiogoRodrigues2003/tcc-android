@@ -27,4 +27,7 @@
     <string name="txt_breed_info">Breed:</string>
     <string name="txt_photo_input_title">And how does he/she look like?</string>
     <string name="txt_choose_photo">Choose Photo</string>
+    <string name="txt_breed_details">Breed Details</string>
+    <string name="txt_dog_breed_details">Dog Breed Details</string>
+    <string name="txt_cat_breed_details">Cat Breed Details</string>
 </resources>

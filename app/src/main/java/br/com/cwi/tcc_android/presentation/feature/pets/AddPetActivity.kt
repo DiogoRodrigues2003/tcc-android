@@ -9,11 +9,12 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import br.com.cwi.tcc_android.databinding.ActivityAddPetBinding
+import br.com.cwi.tcc_android.presentation.constant.PetKeys
 import br.com.cwi.tcc_android.presentation.feature.userPets.UserPetsHostActivity
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AddPetActivity: AppCompatActivity() {
+class AddPetActivity : AppCompatActivity() {
 
     private val viewModel: AddPetViewModel by viewModel()
 
@@ -25,10 +26,12 @@ class AddPetActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddPetBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            onActivityResult(it)
-        }
+        activityResultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                onActivityResult(it)
+            }
 
         setUpViewModel(binding.root)
         setUpChoosePhotoClick()
@@ -49,27 +52,36 @@ class AddPetActivity: AppCompatActivity() {
         }
     }
 
-    private fun setUpViewModel(view: View) {
-        AddPetViewHolder(view, onPetSubmitClick = { petName ->
-            if (petName.isNotEmpty() && viewModel.photoUrl.isNotEmpty()) {
-                viewModel.setPet(petName, intent.getStringExtra("BREED_NAME"), intent.getStringExtra("BREED_ID"))
-                navigateToUserPets()
-            }
-        }).bind(this, intent.getStringExtra("BREED_NAME"))
-
-    }
-
     private fun setUpChoosePhotoClick() {
         binding.mbChoosePhoto.setOnClickListener {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             if (intent.resolveActivity(packageManager) != null) {
                 activityResultLauncher.launch(intent)
             }
         }
     }
 
+    private fun setUpViewModel(view: View) {
+        val breedName = intent.getStringExtra(PetKeys.NAME)
+        val breedId = intent.getStringExtra(PetKeys.ID)
+        val petType = intent.getStringExtra(PetKeys.TYPE)
+
+        AddPetViewHolder(view, onPetSubmitClick = { petName ->
+            viewModel.setPet(petName, breedName, breedId, petType)
+        }).bind(this, breedName)
+
+        viewModel.submit.observe(this) {
+            navigateToUserPets()
+        }
+    }
+
     private fun navigateToUserPets() {
         val intent = Intent(this, UserPetsHostActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

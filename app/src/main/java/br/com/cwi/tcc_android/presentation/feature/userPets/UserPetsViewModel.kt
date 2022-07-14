@@ -20,6 +20,11 @@ class UserPetsViewModel (
         }
     }
 
+    fun deletePet(pet: PetEntity) {
+        petLocalRepository.remove(pet)
+        fetchPets()
+    }
+
     private fun petListSetup(petList: List<PetEntity>?): List<PetEntity> {
         val preparedPetList = mutableListOf<PetEntity>()
 
@@ -29,5 +34,4 @@ class UserPetsViewModel (
 
         return preparedPetList
     }
-
 }

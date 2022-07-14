@@ -2,6 +2,8 @@ package br.com.cwi.tcc_android.data.network.mapper
 
 import br.com.cwi.tcc_android.data.network.entity.DogResponse
 import br.com.cwi.tcc_android.domain.entity.Dog
+import br.com.cwi.tcc_android.presentation.extension.toCentimeters
+import br.com.cwi.tcc_android.presentation.extension.toKilos
 
 class DogMapper: DomainMapper<DogResponse, Dog> {
 
@@ -12,8 +14,8 @@ class DogMapper: DomainMapper<DogResponse, Dog> {
         breedGroup =  nullChecker(from.breedGroup),
         lifeSpan =  nullChecker(from.lifeSpan),
         temperament =  nullChecker(from.temperament),
-        weight = from.weight.value + " kg",
-        height = from.height.value + " cm"
+        weight = from.weight.value.toKilos(),
+        height = from.height.value.toCentimeters()
     )
 
     override fun toDomain(from: List<DogResponse>) = from.map {

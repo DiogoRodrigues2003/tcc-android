@@ -6,8 +6,9 @@ import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentBreedDetailsBinding
 import br.com.cwi.tcc_android.domain.entity.Cat
 import br.com.cwi.tcc_android.domain.entity.Dog
+import br.com.cwi.tcc_android.domain.entity.PetType
 
-class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: (String, String) -> Unit) {
+class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: (String, String, String) -> Unit) {
     private val binding = FragmentBreedDetailsBinding.bind(itemView)
 
     private val mbAddPet = binding.mbAddPet
@@ -37,7 +38,7 @@ class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: (String,
         tvFifthInfo.text = item.height
         tvWeight.text = item.weight
 
-        addPetClickListener(item.id, item.name)
+        addPetClickListener(item.id, item.name, item.type)
     }
 
     fun bind(context: Fragment, item: Cat) {
@@ -53,12 +54,12 @@ class BreedDetailsViewHolder(itemView: View, private val onAddPetClick: (String,
         tvFifthInfo.text = item.lap
         tvWeight.text = item.weight
 
-        addPetClickListener(item.id, item.name)
+        addPetClickListener(item.id, item.name, item.type)
     }
 
-    private fun addPetClickListener(id: String, name: String) {
+    private fun addPetClickListener(id: String, name: String, petType: PetType) {
         mbAddPet.setOnClickListener {
-            onAddPetClick(id, name)
+            onAddPetClick(id, name, petType.name)
         }
     }
 }

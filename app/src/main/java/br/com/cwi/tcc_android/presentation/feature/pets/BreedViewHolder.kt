@@ -3,13 +3,11 @@ package br.com.cwi.tcc_android.presentation.feature.pets
 import android.content.Context
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cwi.tcc_android.R
-import br.com.cwi.tcc_android.databinding.FragmentBreedDetailsBinding
 import br.com.cwi.tcc_android.databinding.ItemBreedBinding
 import br.com.cwi.tcc_android.domain.entity.*
-import br.com.cwi.tcc_android.presentation.feature.dogs.PET_TYPE_DOG
+import br.com.cwi.tcc_android.presentation.constant.PetTypes
 import com.bumptech.glide.Glide
 
 class BreedViewHolder(
@@ -38,7 +36,7 @@ class BreedViewHolder(
 
     private fun getPetIcon() = ContextCompat.getDrawable(
         itemView.context,
-        if (petType == PET_TYPE_DOG) R.drawable.ic_dog
+        if (petType == PetTypes.DOG) R.drawable.ic_dog
         else R.drawable.ic_cat
     )
 }

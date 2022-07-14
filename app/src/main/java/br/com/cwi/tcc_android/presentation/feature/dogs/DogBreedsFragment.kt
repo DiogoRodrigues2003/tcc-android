@@ -10,10 +10,10 @@ import androidx.navigation.fragment.findNavController
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentBreedBinding
 import br.com.cwi.tcc_android.domain.entity.Breed
+import br.com.cwi.tcc_android.presentation.constant.PetKeys
+import br.com.cwi.tcc_android.presentation.constant.PetTypes
 import br.com.cwi.tcc_android.presentation.feature.pets.BreedAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-
-const val PET_TYPE_DOG = "DOG"
 
 class DogBreedsFragment : Fragment() {
 
@@ -56,7 +56,7 @@ class DogBreedsFragment : Fragment() {
 
     private fun setUpCoffeeRecyclerView(list: List<Breed>) {
         binding.rvBreeds.apply {
-            adapter = BreedAdapter(context, list, PET_TYPE_DOG,
+            adapter = BreedAdapter(context, list, PetTypes.DOG,
                 onBreedClick = { id, name ->
                     navigateToBreedDetails(id, name)
             })
@@ -67,8 +67,8 @@ class DogBreedsFragment : Fragment() {
         findNavController().navigate(
             R.id.breedDetailsFragment,
             bundleOf(
-                Pair("BREED_ID", id),
-                Pair("BREED_NAME", name)
+                Pair(PetKeys.ID, id),
+                Pair(PetKeys.NAME, name)
             )
         )
     }

@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentBreedDetailsBinding
+import br.com.cwi.tcc_android.domain.entity.PetType
+import br.com.cwi.tcc_android.presentation.constant.PetKeys
 import br.com.cwi.tcc_android.presentation.feature.pets.AddPetActivity
 import br.com.cwi.tcc_android.presentation.feature.pets.BreedDetailsViewHolder
 import br.com.cwi.tcc_android.presentation.feature.pets.PetImageViewHolder
@@ -20,11 +22,11 @@ class DogBreedDetailsFragment: Fragment() {
     private lateinit var binding: FragmentBreedDetailsBinding
 
     private val breedId by lazy {
-        arguments?.getString("BREED_ID")
+        arguments?.getString(PetKeys.ID)
     }
 
     private val breedName by lazy {
-        arguments?.getString("BREED_NAME")
+        arguments?.getString(PetKeys.NAME)
     }
 
     private val viewModel: DogViewModel by sharedViewModel()
@@ -45,8 +47,8 @@ class DogBreedDetailsFragment: Fragment() {
 
     private fun setUpViewModel(view: View) {
         viewModel.breedDetails.observe(viewLifecycleOwner) {
-            BreedDetailsViewHolder(view, onAddPetClick = { id, name ->
-                navigateToAddPet(id, name)
+            BreedDetailsViewHolder(view, onAddPetClick = { id, name, petType ->
+                navigateToAddPet(id, name, petType)
             }).bind(this, it)
        }
 
@@ -60,10 +62,11 @@ class DogBreedDetailsFragment: Fragment() {
         viewModel.fetchBreedDetails(breedName)
     }
 
-    private fun navigateToAddPet(id: String, name: String) {
+    private fun navigateToAddPet(id: String, name: String, petType: String) {
         val intent = Intent(context, AddPetActivity::class.java)
-            .putExtra("BREED_ID", id)
-            .putExtra("BREED_NAME", name)
+            .putExtra(PetKeys.ID, id)
+            .putExtra(PetKeys.NAME, name)
+            .putExtra(PetKeys.TYPE, petType)
         startActivity(intent)
     }
 }

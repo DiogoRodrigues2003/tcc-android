@@ -16,13 +16,6 @@ class UserPetsHostActivity: BaseBottomNavigation() {
     private val viewModel: UserPetsViewModel by viewModel()
 
     private lateinit var binding: ActivityUserPetsHostBinding
-/*
-    private val navController by lazy {
-        (supportFragmentManager.findFragmentById(binding.navHostContainer.id) as NavHostFragment)
-            .findNavController()
-    }
-
- */
 
     override val currentTab: Int = R.id.user_pets_menu
 
@@ -35,23 +28,7 @@ class UserPetsHostActivity: BaseBottomNavigation() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         setUpViewModel()
-        //setUpNavController()
     }
-/*
-    private fun setUpNavController() {
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.breedFragment) {
-                binding.contentBottomNavigation.bottomNavigation.visibility = View.VISIBLE
-                supportActionBar?.title = getString(R.string.txt_dogs)
-
-            } else {
-                binding.contentBottomNavigation.bottomNavigation.visibility = View.GONE
-                supportActionBar?.title = getString(R.string.txt_dogs)
-            }
-        }
-    }
-
- */
 
     private fun setUpViewModel() {
         viewModel.loading.observe(this@UserPetsHostActivity) { isLoading ->

@@ -44,7 +44,7 @@ class CatHostActivity : BaseBottomNavigation() {
 
             } else {
                 binding.contentBottomNavigation.bottomNavigation.visibility = View.GONE
-                supportActionBar?.title = getString(R.string.txt_cats)
+                supportActionBar?.title = getString(R.string.txt_breed_details)
             }
         }
     }

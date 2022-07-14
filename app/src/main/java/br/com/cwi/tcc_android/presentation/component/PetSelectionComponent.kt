@@ -22,10 +22,8 @@ class PetSelectionComponent : ConstraintLayout {
                 petType = getString(
                     R.styleable.PetSelectionComponent_component_pet_type
                 )
-                clContent.setBackground(
-                    getDrawable(
-                        R.styleable.PetSelectionComponent_component_pet_image
-                    )
+                clContent.background = getDrawable(
+                    R.styleable.PetSelectionComponent_component_pet_image
                 )
             }
             recycle()

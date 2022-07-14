@@ -15,6 +15,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        buildConfigField 'String', 'X_API_HEADER', '"x-api-key"'
+        buildConfigField 'String', 'DOG_API_KEY', '"dc9c3284-f550-45e3-a1b3-2b2536621b77"'
+        buildConfigField 'String', 'CAT_API_KEY', '"0fa5d09e-ca36-45d4-a0d7-3c941d8c6dab"'
+        buildConfigField 'String', 'DOG_API_BASE_URL', '"https://api.thedogapi.com/"'
+        buildConfigField 'String', 'CAT_API_BASE_URL', '"https://api.thecatapi.com/"'
     }
 
     buildTypes {

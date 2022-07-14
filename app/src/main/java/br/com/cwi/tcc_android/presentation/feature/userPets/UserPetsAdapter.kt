@@ -10,11 +10,12 @@ import br.com.cwi.tcc_android.data.database.entity.PetEntity
 class UserPetsAdapter (
     private val context: Context,
     private val list: List<PetEntity>,
+    private val onDeleteClick: (PetEntity?) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = inflateView(R.layout.item_pet, parent)
-        return UserPetsViewHolder(view)
+        return UserPetsViewHolder(view, onDeleteClick)
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {

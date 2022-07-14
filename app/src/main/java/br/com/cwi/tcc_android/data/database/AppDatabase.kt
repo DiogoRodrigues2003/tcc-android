@@ -13,7 +13,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getPetDao(): PetDao
 
     companion object {
-        private const val DATABASE_NAME = "everything-pets-db-2"
+
+        private const val DATABASE_NAME = "everything-pets-db"
+
         fun create(application: Application): AppDatabase {
             return Room.databaseBuilder(
                 application,

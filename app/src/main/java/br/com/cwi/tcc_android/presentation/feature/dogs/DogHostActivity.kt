@@ -45,7 +45,7 @@ class DogHostActivity : BaseBottomNavigation() {
 
             } else {
                 binding.contentBottomNavigation.bottomNavigation.visibility = View.GONE
-                supportActionBar?.title = getString(R.string.txt_dogs)
+                supportActionBar?.title = getString(R.string.txt_breed_details)
             }
         }
     }
