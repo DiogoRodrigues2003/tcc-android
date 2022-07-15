@@ -7,6 +7,7 @@ import br.com.cwi.tcc_android.domain.entity.Dog
 import br.com.cwi.tcc_android.domain.entity.PetImage
 import br.com.cwi.tcc_android.domain.repository.DogRepository
 import br.com.cwi.tcc_android.presentation.base.BaseViewModel
+import javax.security.auth.callback.Callback
 
 class DogViewModel(
     private val repository: DogRepository
@@ -23,9 +24,14 @@ class DogViewModel(
 
     fun fetchBreeds() {
         launch {
-            val breedList = repository.getDogBreeds(page)
-            emptyPage(breedList)
-            _breeds.postValue(breedList)
+            var breedList = repository.getDogBreeds(page)
+            if (breedList.isEmpty()) {
+                page = 0
+                breedList = repository.getDogBreeds(page)
+                _breeds.postValue(breedList)
+            } else {
+                _breeds.postValue(breedList)
+            }
         }
     }
 
@@ -40,13 +46,6 @@ class DogViewModel(
         launch {
             val image = repository.getNewDogImage(id)
             _dogImage.postValue(image)
-        }
-    }
-
-    private fun emptyPage(breedList: List<Breed>) {
-        if (breedList.isEmpty() && page > 0) {
-            page = 0
-            fetchBreeds()
         }
     }
 }

@@ -25,7 +25,7 @@ class UserPetsViewModel (
         fetchPets()
     }
 
-    private fun petListSetup(petList: List<PetEntity>?): List<PetEntity> {
+    fun petListSetup(petList: List<PetEntity>?): List<PetEntity> {
         val preparedPetList = mutableListOf<PetEntity>()
 
         petList?.forEach {

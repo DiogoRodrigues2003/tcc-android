@@ -9,49 +9,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_welcome_card"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:elevation="10dp"
+        android:paddingBottom="20dp"
         android:background="@color/base_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_dog_icon"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_card_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_dog"/>
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_card_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/darker_base_color_2"
-            android:textStyle="bold"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="4"
             android:text="@string/txt_home_title"
-            app:layout_constraintStart_toEndOf="@id/iv_dog_icon"
-            app:layout_constraintEnd_toStartOf="@id/iv_cat_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_cat_icon"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/darker_base_color_2"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_card_title"
-            app:srcCompat="@drawable/ic_cat"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -60,20 +40,30 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:component_pet_type="@string/txt_dogs"
-        app:component_pet_image="@drawable/bc_dog"
+        app:component_pet_image="@drawable/im_home_dog"
         app:layout_constraintTop_toBottomOf="@id/cl_welcome_card"
-        app:layout_constraintEnd_toStartOf="@+id/content_cats"
+        app:layout_constraintEnd_toStartOf="@+id/cl_divisor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/content_bottom_navigation" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_divisor"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/cl_welcome_card"
+        app:layout_constraintStart_toEndOf="@id/content_dogs"
+        app:layout_constraintEnd_toStartOf="@+id/content_cats"
+        app:layout_constraintBottom_toTopOf="@id/content_bottom_navigation"
+        />
 
     <br.com.cwi.tcc_android.presentation.component.PetSelectionComponent
         android:id="@+id/content_cats"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:component_pet_type="@string/txt_cats"
-        app:component_pet_image="@drawable/bc_cat"
+        app:component_pet_image="@drawable/im_home_cat"
         app:layout_constraintTop_toBottomOf="@id/cl_welcome_card"
-        app:layout_constraintStart_toEndOf="@+id/content_dogs"
+        app:layout_constraintStart_toEndOf="@+id/cl_divisor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/content_bottom_navigation" />
 

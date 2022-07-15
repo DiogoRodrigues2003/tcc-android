@@ -9,28 +9,40 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_content"
-        tools:background="@drawable/bc_dog"
+        android:background="@color/lighter_base_color"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_pet_photo"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_pet_selection"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/im_home_dog" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_pet_selection"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textColor="@color/white"
             android:background="@drawable/rounded_button"
+            android:padding="20dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="20"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textAlignment="center"
             android:textStyle="bold"
-            android:padding="20dp"
-            app:textAllCaps="true"
+            android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_pet_photo"
+            app:textAllCaps="true"
             tools:text="@string/txt_dogs" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

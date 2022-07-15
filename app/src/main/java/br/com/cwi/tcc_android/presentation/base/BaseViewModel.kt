@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.cwi.tcc_android.domain.entity.Breed
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import javax.security.auth.callback.Callback
 
 abstract class BaseViewModel: ViewModel() {
 

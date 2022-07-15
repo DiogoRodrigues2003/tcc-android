@@ -24,9 +24,14 @@ class CatViewModel (
 
     fun fetchBreeds() {
         launch {
-            val breedList = repository.getCatBreeds(page)
-            emptyPage(breedList)
-            _breeds.postValue(breedList)
+            var breedList: List<Breed> = repository.getCatBreeds(page)
+            if (breedList.isEmpty()) {
+                page = 0
+                breedList = repository.getCatBreeds(page)
+                _breeds.postValue(breedList)
+            } else {
+                _breeds.postValue(breedList)
+            }
         }
     }
 
@@ -41,13 +46,6 @@ class CatViewModel (
         launch {
             val image = repository.getNewCatImage(id)
             _catImage.postValue(image)
-        }
-    }
-
-    private fun emptyPage(breedList: List<Breed>) {
-        if (breedList.isEmpty() && page > 0) {
-            page = 0
-            fetchBreeds()
         }
     }
 }

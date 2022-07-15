@@ -11,5 +11,6 @@
     <color name="darker_base_color">#8F5454</color>
     <color name="darker_base_color_2">#A86168</color>
     <color name="lighter_base_color">#F4DEE0</color>
+    <color name="lighter_base_color_2">#F8BCC2</color>
     <color name="text_shadow">#7F000000</color>
 </resources>

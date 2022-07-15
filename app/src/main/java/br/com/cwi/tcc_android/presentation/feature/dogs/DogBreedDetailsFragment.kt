@@ -5,14 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import br.com.cwi.tcc_android.R
 import br.com.cwi.tcc_android.databinding.FragmentBreedDetailsBinding
-import br.com.cwi.tcc_android.domain.entity.PetType
 import br.com.cwi.tcc_android.presentation.constant.PetKeys
-import br.com.cwi.tcc_android.presentation.feature.pets.AddPetActivity
+import br.com.cwi.tcc_android.presentation.feature.addPet.AddPetActivity
 import br.com.cwi.tcc_android.presentation.feature.pets.BreedDetailsViewHolder
 import br.com.cwi.tcc_android.presentation.feature.pets.PetImageViewHolder
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel

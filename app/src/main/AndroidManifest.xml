@@ -44,7 +44,7 @@
             android:label="Your Pets"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.feature.pets.AddPetActivity"
+            android:name=".presentation.feature.addPet.AddPetActivity"
             android:exported="false"
             android:label="Add your Pet"
             android:screenOrientation="portrait" />
