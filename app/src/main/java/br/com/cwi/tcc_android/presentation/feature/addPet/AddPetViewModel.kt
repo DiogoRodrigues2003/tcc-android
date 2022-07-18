@@ -13,7 +13,7 @@ class AddPetViewModel (
     private val _submit = MutableLiveData<Unit>()
     val submit: LiveData<Unit> = _submit
 
-    lateinit var photoUrl: String
+    var photoUrl: String = ""
 
     fun setPet(petName: String, breedName: String?, breedId: String?, petType: String?) {
         if (petName.isNotEmpty() && photoUrl.isNotEmpty()) {
