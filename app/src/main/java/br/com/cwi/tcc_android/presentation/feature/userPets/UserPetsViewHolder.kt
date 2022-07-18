@@ -31,6 +31,7 @@ class UserPetsViewHolder(
 
         Glide.with(context)
             .load(item?.petPhotoUrl)
+            .placeholder(R.drawable.ic_placeholder)
             .into(ivPetImage)
 
         ivDeletePet.setOnClickListener {

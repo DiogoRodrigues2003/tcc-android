@@ -27,6 +27,7 @@ class BreedViewHolder(
 
         Glide.with(context)
             .load(item.image?.url)
+            .placeholder(R.drawable.ic_placeholder)
             .into(ivPetImage)
 
         itemView.setOnClickListener {

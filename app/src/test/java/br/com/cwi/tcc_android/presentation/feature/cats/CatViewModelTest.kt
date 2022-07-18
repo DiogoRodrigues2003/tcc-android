@@ -61,7 +61,7 @@ class CatViewModelTest {
     }
 
     @Test
-    fun whenFetchBreedsButListIsEmpty_thenMakePageZeroAndPostValueSuccessfullyAf() {
+    fun whenFetchBreedsButListIsEmpty_thenMakePageZeroAndPostValueSuccessfully() {
         // Arrange
         viewModel.page = 1
         val breedObserver = viewModel.breeds.test()

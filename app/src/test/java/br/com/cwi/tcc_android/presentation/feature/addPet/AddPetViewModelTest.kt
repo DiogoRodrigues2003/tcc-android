@@ -43,7 +43,6 @@ class AddPetViewModelTest {
         Dispatchers.setMain(dispatcher)
         viewModel = AddPetViewModel(petLocalRepository)
     }
-
 /*
     @Test
     fun test() {
@@ -55,18 +54,11 @@ class AddPetViewModelTest {
         val breedName = "Yorkshire Terrier"
         val breedId = "1"
         val petType = "DOG"
+        val photoUrl = "url"
 
-        val pet = PetEntity(
-            0,
-            petName,
-            breedName,
-            breedId,
-            viewModel.photoUrl,
-            petType
-        )
+        val pet = toPetEntity(petName, breedName, breedId, photoUrl, petType)
 
-        //coEvery { toPetEntity(petName, breedName, breedId, viewModel.photoUrl, petType) } returns pet
-        when { petLocalRepository.add(pet) } returns Unit
+        coEvery { petLocalRepository.add(pet) } returns Unit
 
         // Act
         viewModel.setPet(petName, breedName, breedId, petType)
